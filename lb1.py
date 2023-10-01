@@ -139,7 +139,7 @@ class UnrolledLinkedList:
             node = node.next
         return "Not found"
 
-    def print(self):
+    def print_elements(self):
         # node = self.head
         # while node is not None:
         #     print(node.arr, end=' ')
@@ -156,19 +156,46 @@ class UnrolledLinkedList:
         # print()
         print(string[:-1])
 
+    def __str__(self):
+        if self.head is None:
+            return 'No elements'
+        node = self.head
+        string = ''
+        while node is not None:
+            # for i in range(len(node.arr)):
+                # print(node.arr[i], end=' ')
+                # string += str(node.arr) + ' '
+            # print(node.arr)
+            string += str(node.arr) + ' '
+            node = node.next
+        return string[:-1]
+
+        # if self.head is None:
+        #     return 'No elements'
+        # node = self.head
+        # string = []
+        # while node is not None:
+        #     string.append(node.arr)
+        #     node = node.next
+        # return ' '.join(map(str, string))
+
 def check(arr1, arr2, n_array = 4):
     linked_list = UnrolledLinkedList(n_array)
 
     for i in arr1:
         linked_list.insert(i)
-        linked_list.print()
+        # print(linked_list)
+        # linked_list.print()
 
     for i in arr2:
         linked_list.delete(linked_list.index(i))
-        linked_list.print()
+        # print(linked_list)
+        # linked_list.print()
+
     return linked_list
 
-check([0,1,2,3,4,5,6,7], [1,3,5,7]).print()
+# check([0,1,2,3,4,5,6,7], [1,3,5,7]).print_elements()
+print(check([0,1,2,3,4,5,6,7], [1,3,5,7]))
 
 # ll = UnrolledLinkedList(6)
 # for i in range(10):
